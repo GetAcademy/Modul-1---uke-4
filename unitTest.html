@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Test Suite</title>
+<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.15.0.css">
+
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.15.0.js"></script>
+    <script src="code.js"></script>
+
+    <script>
+        QUnit.test('CODING - CO???? - gjetter N', function (assert) {
+            // arrange
+            const correctWord = 'CODING';
+            const guessedWord = 'CO????';
+            const letter = 'N';
+            const expectedGuessedWord = 'CO??N?';
+
+            // act
+            const actualGuessedWord =
+                updateGuessedWord(correctWord, letter, guessedWord);
+
+            // assert
+            assert.equal(actualGuessedWord, expectedGuessedWord);
+        });
+
+        QUnit.test('TERJE - ???J? - gjetter R', function (assert) {
+            // arrange
+            const correctWord = 'TERJE';
+            const guessedWord = '???J?';
+            const letter = 'R';
+            const expectedGuessedWord = '??RJ?';
+
+            // act
+            const actualGuessedWord =
+                updateGuessedWord(correctWord, letter, guessedWord);
+
+            // assert
+            assert.equal(actualGuessedWord, expectedGuessedWord);
+        });
+
+        QUnit.test('TERJE - ??RJ? - gjetter R', function (assert) {
+            // arrange
+            const correctWord = 'TERJE';
+            const guessedWord = '??RJ?';
+            const letter = 'R';
+            const expectedGuessedWord = '??RJ?';
+
+            // act
+            const actualGuessedWord =
+                updateGuessedWord(correctWord, letter, guessedWord);
+
+            // assert
+            assert.equal(actualGuessedWord, expectedGuessedWord);
+        });
+
+        QUnit.test('TERJE - ???J? - gjetter r', function (assert) {
+            // arrange
+            const correctWord = 'TERJE';
+            const guessedWord = '???J?';
+            const letter = 'r';
+            const expectedGuessedWord = '??RJ?';
+
+            // act
+            const actualGuessedWord =
+                updateGuessedWord(correctWord, letter, guessedWord);
+
+            // assert
+            assert.equal(actualGuessedWord, expectedGuessedWord);
+        });
+
+        QUnit.test('TERJE - null - gjetter r', function (assert) {
+            // arrange
+            const correctWord = 'TERJE';
+            const guessedWord = null;
+            const letter = 'r';
+            const expectedGuessedWord = '??R??';
+
+            // act
+            const actualGuessedWord =
+                updateGuessedWord(correctWord, letter, guessedWord);
+
+            // assert
+            assert.equal(actualGuessedWord, expectedGuessedWord);
+        });
+    </script>
+</body>
